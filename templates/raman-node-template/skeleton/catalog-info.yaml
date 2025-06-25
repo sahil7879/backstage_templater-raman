@@ -2,10 +2,9 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: ${{ values.name }}
-  description: A simple scaffolded service
+  description: A ${{ values.language }} service scaffolded with optional features
   tags:
-    - node
-    - demo
+    - ${{ values.language }}
 spec:
   type: service
   lifecycle: experimental
