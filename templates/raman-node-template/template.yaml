@@ -1,8 +1,8 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: simple-node-template
-  title: Simple Node Project
+  name: raman-node-template
+  title: raman Node Project
   description: Scaffold a Node.js service with optional features
 spec:
   owner: platform-team
