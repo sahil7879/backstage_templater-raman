@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{ values.name }}
+  description: A simple scaffolded service
+  tags:
+    - node
+    - demo
+spec:
+  type: service
+  lifecycle: experimental
+  owner: ${{ values.owner }}
+

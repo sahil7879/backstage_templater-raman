@@ -1,0 +1,46 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: simple-node-template
+  title: Simple Node Project
+  description: Scaffold a basic Node.js project with README and Backstage metadata
+spec:
+  owner: platform-team
+  type: service
+
+  parameters:
+    - title: Provide project details
+      required:
+        - name
+        - owner
+      properties:
+        name:
+          type: string
+          title: Project name
+          description: Unique name for your service
+        owner:
+          type: string
+          title: Owner
+          description: Owner of this component (team or individual)
+
+  steps:
+    - id: fetch-base
+      name: Fetch Skeleton
+      action: fetch:template
+      input:
+        url: ./skeleton
+        values:
+          name: ${{ parameters.name }}
+          owner: ${{ parameters.owner }}
+
+    - id: register
+      name: Register in Catalog
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps['fetch-base'].output.repoContentsUrl }}
+        catalogInfoPath: ./catalog-info.yaml
+
+  output:
+    links:
+      - title: Open in catalog
+        url: ${{ steps.register.output.entityRef | parseEntityRef | entityUrl }}
