@@ -69,7 +69,7 @@ spec:
       action: publish:github
       input:
         description: 'Scaffolded Node.js project'
-        repoUrl: 'github.com?sahil7879/${{ parameters.name }}'
+        repoUrl: github.com?owner=${{parameters.owner}}&repo=${{parameters.name}}
         defaultBranch: main
         protectDefaultBranch: false
         requireCodeOwnerReviews: false
