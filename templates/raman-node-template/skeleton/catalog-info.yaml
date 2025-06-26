@@ -5,6 +5,8 @@ metadata:
   description: A ${{ values.language }} service scaffolded with optional features
   tags:
     - ${{ values.language }}
+  annotations:
+    github.com/project-slug: ${{values.owner}}/${{values.app_name}}
 spec:
   type: service
   lifecycle: experimental
